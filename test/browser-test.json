@@ -200,6 +200,16 @@
         }
     },
     {
+        "desc"    : "Coc Coc Browser",
+        "ua"      : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/78.0.129 Chrome/72.0.3626.129 Safari/537.36",
+        "expect"  :
+        {
+            "name"    : "Coc Coc",
+            "version" : "78.0.129",
+            "major"   : "78"
+        }
+    },
+    {
         "desc"    : "Chrome on Android",
         "ua"      : "Mozilla/5.0 (Linux; U; Android-4.0.3; en-us; Galaxy Nexus Build/IML74K) AppleWebKit/535.7 (KHTML, like Gecko) CrMo/16.0.912.75 Mobile Safari/535.7",
         "expect"  :
@@ -1150,7 +1160,7 @@
         "expect"  :
         {
             "name"    : "BIDUBrowser",
-            "version" : "8.7", 
+            "version" : "8.7",
             "major"   : "8"
         }
     },

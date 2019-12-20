@@ -331,6 +331,9 @@
             /(sailfishbrowser)\/([\w\.]+)/i                                     // Sailfish Browser
             ], [[NAME, 'Sailfish Browser'], VERSION], [
 
+            /(coc_coc_browser)\/([\w\.]+)/i                                     // Coc Coc Browser
+            ], [[NAME, 'Coc Coc'], VERSION], [
+
             /(chrome|omniweb|arora|[tizenoka]{5}\s?browser)\/v?([\w\.]+)/i
                                                                                 // Chrome/OmniWeb/Arora/Tizen/Nokia
             ], [NAME, VERSION], [
@@ -571,7 +574,7 @@
 
             /android.+;\s(\w+)\s+build\/hm\1/i,                                 // Xiaomi Hongmi 'numeric' models
             /android.+(hm[\s\-_]*note?[\s_]*(?:\d\w)?)\s+build/i,               // Xiaomi Hongmi
-            /android.+(mi[\s\-_]*(?:a\d|one|one[\s_]plus|note lte)?[\s_]*(?:\d?\w?)[\s_]*(?:plus)?)\s+build/i,    
+            /android.+(mi[\s\-_]*(?:a\d|one|one[\s_]plus|note lte)?[\s_]*(?:\d?\w?)[\s_]*(?:plus)?)\s+build/i,
                                                                                 // Xiaomi Mi
             /android.+(redmi[\s\-_]*(?:note)?(?:[\s_]*[\w\s]+))\s+build/i       // Redmi Phones
             ], [[MODEL, /_/g, ' '], [VENDOR, 'Xiaomi'], [TYPE, MOBILE]], [
@@ -673,7 +676,7 @@
             ], [[NAME, 'Blink']], [
 
             /(presto)\/([\w\.]+)/i,                                             // Presto
-            /(webkit|trident|netfront|netsurf|amaya|lynx|w3m|goanna)\/([\w\.]+)/i,     
+            /(webkit|trident|netfront|netsurf|amaya|lynx|w3m|goanna)\/([\w\.]+)/i,
                                                                                 // WebKit/Trident/NetFront/NetSurf/Amaya/Lynx/w3m/Goanna
             /(khtml|tasman|links)[\/\s]\(?([\w\.]+)/i,                          // KHTML/Tasman/Links
             /(icab)[\/\s]([23]\.[\d\.]+)/i                                      // iCab
@@ -847,6 +850,18 @@
         NAME    : NAME,
         VERSION : VERSION
     };
+
+  var NAME = UAParser.BROWSER.NAME;
+  var VERSION = UAParser.BROWSER.VERSION;
+  var TYPE_BOT = ['type', 'bot'];
+  var TYPE_OTHER = ['type', 'other'];
+  var botsRegExt = [
+    // google, bing, msn, ads
+    [/((?:google|ads|bing|msn)bot(?:\-[\w]+)?)\/?([\w\.]+)?/i], [NAME, VERSION, TYPE_BOT],
+    // bing preview
+    [/([\w]+)\/([\w\._]+)/i], [NAME, VERSION, TYPE_OTHER]
+  ];
+  UAParser.botsDetectionExt = botsRegExt
 
     ///////////
     // Export
